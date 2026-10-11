@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nhặt Nhạnh Văn Chương — góc nhỏ để học tập, lưu giữ và chia sẻ những điều đẹp đẽ từ văn chương.">
+  <title>Nhặt Nhạnh Văn Chương</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="Nhặt Nhạnh Văn Chương - trang chủ">
+      <span class="brand-mark">❧</span>
+      <span><strong>Nhặt Nhạnh Văn Chương</strong><small>Gom nhặt những điều đẹp đẽ từ văn chương</small></span>
+    </a>
+    <button id="open-post-form" class="button button-primary" type="button">＋ Đăng bài</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">MỘT GÓC NHỎ CHO NGƯỜI YÊU VĂN</p>
+      <h1>Để những con chữ<br><em>tìm được nơi thuộc về.</em></h1>
+      <p class="hero-copy">Một chiếc kệ nhỏ để cùng học, cùng đọc và lưu giữ những điều mình tâm đắc.</p>
+      <a class="text-link" href="#categories">Khám phá các góc học tập <span>↓</span></a>
+      <div class="hero-flower" aria-hidden="true">✳</div>
+    </section>
+
+    <section id="categories" class="section">
+      <div class="section-heading">
+        <div><p class="eyebrow">THE READING CORNER</p><h2>Những góc nhỏ</h2></div>
+        <p>Chọn một góc để tìm những bài viết phù hợp.</p>
+      </div>
+      <div class="category-grid">
+        <button class="category-card" data-category="Ôn tập đọc hiểu"><span class="card-number">01 / STUDY</span><span class="card-icon">❧</span><h3>Ôn tập đọc hiểu</h3><p>Ghi chú kiến thức và cách đọc một văn bản.</p><span class="card-arrow">↗</span></button>
+        <button class="category-card" data-category="Ôn tập các bài văn"><span class="card-number">02 / REVIEW</span><span class="card-icon">✎</span><h3>Ôn tập các bài văn</h3><p>Hệ thống hóa tác phẩm và những ý chính.</p><span class="card-arrow">↗</span></button>
+        <button class="category-card" data-category="Các bài văn mẫu"><span class="card-number">03 / ESSAYS</span><span class="card-icon">❋</span><h3>Các bài văn mẫu</h3><p>Nơi lưu lại những bài viết để tham khảo.</p><span class="card-arrow">↗</span></button>
+        <button class="category-card" data-category="Các diễn đạt trích dẫn hay"><span class="card-number">04 / QUOTES</span><span class="card-icon">“ ”</span><h3>Diễn đạt & trích dẫn hay</h3><p>Nhặt nhạnh câu chữ, cách diễn đạt giàu sức gợi.</p><span class="card-arrow">↗</span></button>
+        <button class="category-card" data-category="Một số tác phẩm hay nên đọc"><span class="card-number">05 / BOOKSHELF</span><span class="card-icon">▤</span><h3>Tác phẩm hay nên đọc</h3><p>Một chiếc kệ dành cho những cuốn sách đáng đọc.</p><span class="card-arrow">↗</span></button>
+      </div>
+    </section>
+
+    <section id="community" class="section posts-section">
+      <div class="section-heading">
+        <div><p class="eyebrow">FROM OUR COMMUNITY</p><h2 id="posts-title">Bài viết mới</h2></div>
+        <div class="search-wrap"><label class="visually-hidden" for="search-input">Tìm bài viết</label><input id="search-input" type="search" placeholder="Tìm bài viết..."></div>
+      </div>
+      <p id="active-filter" class="active-filter" hidden></p>
+      <div id="posts-list" class="posts-grid" aria-live="polite">
+        <p class="empty-state">Đang tải những trang viết...</p>
+      </div>
+      <button id="clear-filter" class="button button-quiet" type="button" hidden>Xem tất cả bài viết</button>
+    </section>
+
+    <section id="write" class="write-banner">
+      <div><p class="eyebrow">YOUR WORDS MATTER</p><h2>Có điều gì muốn<br>nhặt nhạnh và sẻ chia?</h2><p>Đăng bài để lưu lại góc nhìn, ghi chú hoặc bài viết của bạn.</p></div>
+      <button id="open-post-form-bottom" class="button button-light" type="button">Viết bài đầu tiên ↗</button>
+    </section>
+  </main>
+
+  <footer class="site-footer"><span>❧ Nhặt Nhạnh Văn Chương</span><span>Một góc nhỏ dành cho những người yêu con chữ.</span></footer>
+
+  <dialog id="post-dialog" class="post-dialog">
+    <form id="post-form" class="post-form">
+      <div class="dialog-heading"><div><p class="eyebrow">SHARE YOUR WORDS</p><h2>Đăng bài mới</h2></div><button id="close-post-form" class="close-button" type="button" aria-label="Đóng">×</button></div>
+      <p class="form-note">Bài viết sẽ được công khai trên website. Đừng đăng thông tin cá nhân nhạy cảm.</p>
+      <label for="post-title">Tiêu đề bài viết <span>*</span></label>
+      <input id="post-title" name="title" maxlength="180" required placeholder="Đặt tên cho trang viết của bạn">
+      <label for="post-author">Tên người viết</label>
+      <input id="post-author" name="author" maxlength="80" placeholder="Tên hiển thị (có thể để trống)">
+      <label for="post-category">Danh mục <span>*</span></label>
+      <select id="post-category" name="category" required>
+        <option value="Ôn tập đọc hiểu">Ôn tập đọc hiểu</option>
+        <option value="Ôn tập các bài văn">Ôn tập các bài văn</option>
+        <option value="Các bài văn mẫu">Các bài văn mẫu</option>
+        <option value="Các diễn đạt trích dẫn hay">Các diễn đạt trích dẫn hay</option>
+        <option value="Một số tác phẩm hay nên đọc">Một số tác phẩm hay nên đọc</option>
+        <option value="Chia sẻ khác">Chia sẻ khác</option>
+      </select>
+      <label for="post-content">Nội dung <span>*</span></label>
+      <textarea id="post-content" name="content" rows="9" maxlength="30000" required placeholder="Viết điều bạn muốn chia sẻ..."></textarea>
+      <p id="form-status" class="form-status" role="status"></p>
+      <div class="form-actions"><button id="cancel-post" class="button button-quiet" type="button">Hủy</button><button id="submit-post" class="button button-primary" type="submit">Đăng bài công khai</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="read-dialog" class="read-dialog">
+    <div class="read-content"><button id="close-read-dialog" class="close-button read-close" type="button" aria-label="Đóng">×</button><p id="read-category" class="eyebrow"></p><h2 id="read-title"></h2><p id="read-meta" class="post-meta"></p><div id="read-body" class="read-body"></div></div>
+  </dialog>
+</body>
+</html>
