@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trải Bài Tarot | Cảm nhận chiều sâu trái tim bạn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">☾</span> <span class="logo-text">Cảm nhận chiều sâu<br>trái tim bạn</span>
+            </a>
+            <button class="menu-toggle" id="mobile-menu-btn"><span></span><span></span><span></span></button>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html">Trang chủ</a>
+                <a href="trai-bai.html" class="active">Trải bài</a>
+                <a href="dich-vu.html">Dịch vụ</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="tarot-app-section page-header">
+        <div class="container">
+            <h1>Lắng Nghe Trực Giác</h1>
+            <p>Hít một hơi thật sâu. Chọn chủ đề bạn muốn hỏi và rút bài khi bạn cảm thấy sẵn sàng.</p>
+            
+            <!-- BƯỚC 1: CHỌN KIỂU TRẢI BÀI -->
+            <div id="step-1-selection" class="app-panel">
+                <h3>Chọn kiểu trải bài:</h3>
+                <div class="spread-options">
+                    <button class="btn btn-secondary" onclick="startReading('1-card')">1 Lá (Thông điệp ngày mới)</button>
+                    <button class="btn btn-secondary" onclick="startReading('3-card')">3 Lá (Quá khứ - Hiện tại - Tương lai)</button>
+                    <button class="btn btn-secondary" onclick="startReading('love')">3 Lá (Chuyện tình cảm)</button>
+                </div>
+            </div>
+
+            <!-- BƯỚC 2: RÚT BÀI (Mặc định ẩn) -->
+            <div id="step-2-draw" class="app-panel" style="display: none;">
+                <h3 id="draw-instruction">Hãy chọn lá bài cho vị trí: <span id="current-position">...</span></h3>
+                <p>Số lá cần rút: <span id="cards-left">0</span></p>
+                <div class="deck-container" id="deck-container">
+                    <!-- Javascript sẽ sinh ra 22 lá bài úp ở đây -->
+                </div>
+            </div>
+
+            <!-- BƯỚC 3: KẾT QUẢ (Mặc định ẩn) -->
+            <div id="step-3-result" class="app-panel" style="display: none;">
+                <h2>Trải Bài Của Bạn</h2>
+                <div class="reading-result-grid" id="reading-result">
+                    <!-- Kết quả hiển thị ở đây -->
+                </div>
+                <button class="btn btn-primary" style="margin-top: 30px;" onclick="resetReading()">Trải bài mới</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Kéo data trước, logic tarot sau -->
+    <script src="js/data.js"></script>
+    <script src="js/tarot.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
