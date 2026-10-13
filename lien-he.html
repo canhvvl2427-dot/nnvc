@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ & Đặt Lịch | Cảm nhận chiều sâu trái tim bạn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Load thư viện Supabase JS trực tiếp từ CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <header class="header">
+        <!-- (Header giống các trang khác, tôi thu gọn để đỡ rối) -->
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><span class="logo-icon">☾</span> <span class="logo-text">Cảm nhận chiều sâu<br>trái tim bạn</span></a>
+            <nav class="nav-menu" id="nav-menu">
+                <a href="index.html">Trang chủ</a>
+                <a href="trai-bai.html">Trải bài</a>
+                <a href="dich-vu.html">Dịch vụ</a>
+                <a href="nhat-ky.html">Nhật ký tâm hồn</a>
+                <a href="ve-toi.html">Về tôi</a>
+                <a href="lien-he.html" class="active">Liên hệ</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Kết Nối Với Tôi</h1>
+            <p>Gửi lại câu chuyện của bạn. Tôi sẽ phản hồi sớm nhất có thể.</p>
+        </div>
+    </section>
+
+    <section class="contact-section container">
+        <div class="form-container">
+            <form id="booking-form">
+                <div class="form-group">
+                    <label>Tên / Biệt danh của bạn</label>
+                    <input type="text" id="name" required placeholder="Ví dụ: Cẩm Tú, Hoa Hồng Nhỏ...">
+                </div>
+                <div class="form-group">
+                    <label>Phương thức liên hệ (Zalo / Link Facebook / Email)</label>
+                    <input type="text" id="contact_info" required placeholder="Để tôi có thể gửi kết quả trải bài">
+                </div>
+                <div class="form-group">
+                    <label>Dịch vụ quan tâm</label>
+                    <select id="service">
+                        <option value="Tình yêu">Trải bài Tình yêu & Mối quan hệ</option>
+                        <option value="Nội tâm">Trải bài Nội tâm & Chữa lành</option>
+                        <option value="Chuyên sâu">Gói Trải bài Chuyên sâu</option>
+                        <option value="Khác">Chỉ muốn tâm sự / Hỏi dịch vụ khác</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Câu hỏi hoặc tình huống của bạn</label>
+                    <textarea id="message" rows="5" required placeholder="Kể cho tôi nghe một chút về những gì bạn đang đối mặt..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-submit">Gửi thông điệp ✦</button>
+                <div id="form-status" class="form-status"></div>
+            </form>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>
